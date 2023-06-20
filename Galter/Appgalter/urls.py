@@ -5,10 +5,10 @@ from . import views
 
 
 urlpatterns = [
-    path('Usuario/', listarUsuarios.as_view(), name='Usuario/'),
+    path('Usuario', listarUsuarios.as_view(), name='Usuario'),
     path('insertarUsu/', InsertarUsuario.as_view(), name='insertar'),
 
-
+    #insertar datos con js
     path('frmInsertar',views.formularioInsertar, name='resgistrar')
     
     

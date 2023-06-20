@@ -6,7 +6,7 @@ from Appgalter.models import cliente, material, pedido, producto, proveedor
 
 @admin.register(usuario)
 class usuraioadmin(admin.ModelAdmin):
-    list_display=('codi_usuario', 'nombre_usuario', 'correo_usuario','pass_ususario', 'tipo_usuario')
+    list_display=('codi_usuario', 'nombre_usuario', 'correo_usuario','pass_usuario', 'tipo_usuario')
     #ordering=('-nombre',)
     #ordering=('nombre', 'apellido')
     #search_fields=('nombre_usuario',)

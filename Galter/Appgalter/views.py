@@ -23,9 +23,9 @@ def principal (request):
 
 
 
-class listarUsuarios(ListView):
-    model=usuario
-    template_name="index1.html"
+# class listarUsuarios(ListView):
+#     model=usuario
+#     template_name="index1.html"
 
     
 
@@ -65,15 +65,39 @@ class listarUsuarios(ListView):
 
 
 
-class listarUsuarios(View):
-    def get(self,request):
-        datos=usuario.objects.all().values()
-        datosusu=list(datos)
-        return render(request, 'index1.html',{'datos': datosusu})
+# class listarUsuarios(View):
+#     def get(self,request):
+#         datos=usuario.objects.all().values()
+#         datosusu=list(datos)
+#         return render(request, 'index1.html',{'datos': datosusu})
         
-        #return JsonResponse(datosusu, safe=False)
+#         #return JsonResponse(datosusu, safe=False)
     
+
+
+
+
+class listarUsuarios(ListView):
+    def get(self,request):
+        datos=usuario.objects.all()
+        datos_Usuarios=[]
+        for i in datos:
+            datos_Usuarios.append({ 
+                'codi_usuario':i.codi_usuario,
+                'nombre_usuario':i.nombre_usuario,
+                'correo_usuario':i.correo_usuario,
+                'pass_ususario':i.pass_ususario,
+                'tipo_usuario':i.tipo_usuario
+            }) 
+        #datoscli=list(datos)
+        return JsonResponse(datos_Usuarios, safe=False)
+        #return render(request, 'index.html',{'datos': datoscli})
     
+
+
+
+
+
 
 
 
