@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "index4.css" %}'>
+    <title>Document</title>
+    
+</head>
+<body>
+    <tbody>
+        <h1>Material</h1>
+        <div class="row">
+            <table class="table">
+                <thead>}
+                    <tr class="titu">
+                        <th class="t1" scope="col">Codigo</th>
+                        <th scope="col">Nombre </th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Proveedor</th>
+                    </tr>
+                </thead>
+            {%for i in datoscli %}
+            <tbody>
+                <tr class="text1">
+                    <td>{{ i.codi_mate }}</td>
+                    <td>{{ i.nomb_mate }}</td>
+                    <td>{{ i.cant_mate }}</td>
+                    <td>{{ i.proveedor_mate }}</td>
+                </tr>
+            </tbody>
+            {%endfor%}
+            </table>
+
+        </div>
+
+    </tbody>
+    
+</body>
+</html>

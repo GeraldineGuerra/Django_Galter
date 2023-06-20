@@ -1,0 +1,44 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "index1.css" %}'>
+    <title>Document</title>
+    
+</head>
+<body>
+    <tbody>
+        <h1>Usuarios</h1>
+        <div class="row">
+            <table class="table">
+                <thead>
+                    <tr class="titu">
+                        <th class="t1" scope="col">Codigo</th>
+                        <th scope="col">Nombre </th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Password</th>
+                        <th scope="col">Tipo</th>
+                    </tr>
+                </thead>
+            {%for i in datosusu %}
+            <tbody>
+                <tr class="text1">
+                    <td>{{ i.codi_usuario }}</td>
+                    <td>{{ i.nombre_usuario }}</td>
+                    <td>{{ i.correo_usuario }}</td>
+                    <td>{{ i.pass_ususario }}</td>
+                    <td>{{ i.tipo_usuario }}</td>
+                </tr>
+            </tbody>
+            {%endfor%}
+            </table>
+
+        </div>
+
+    </tbody>
+    
+</body>
+</html>

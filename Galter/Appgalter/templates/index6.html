@@ -1,0 +1,49 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "index6.css" %}'>
+    <title>Document</title>
+    
+</head>
+<body>
+    <tbody>
+        <h1>Pedido</h1>
+        <div class="row">
+            <table class="table">
+                <thead>}
+                    <tr class="titu">
+                        <th class="t1" scope="col">Codigo</th>
+                        <th scope="col">Cliente </th>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Tiempo</th>
+                        <th scope="col">Fecha de encargo</th>
+                        <th scope="col">Fecha de entrega</th>
+
+                    </tr>
+                </thead>
+            {%for i in datoscli %}
+            <tbody>
+                <tr class="text1">
+                    <td>{{ i.id_pedido }}</td>
+                    <td>{{ i.cliente_pedido }}</td>
+                    <td>{{ i.producto_pedido }}</td>
+                    <td>{{ i.usuario_pedido }}</td>
+                    <td>{{ i.tiempo_pedido }}</td>
+                    <td>{{ i.fecha_encargo }}</td>
+                    <td>{{ i.fecha_entrega }}</td>
+                </tr>
+            </tbody>
+            {%endfor%}
+            </table>
+
+        </div>
+
+    </tbody>
+    
+</body>
+</html>
