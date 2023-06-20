@@ -86,7 +86,7 @@ class listarUsuarios(ListView):
                 'codi_usuario':i.codi_usuario,
                 'nombre_usuario':i.nombre_usuario,
                 'correo_usuario':i.correo_usuario,
-                'pass_ususario':i.pass_ususario,
+                'pass_usuario':i.pass_usuario,
                 'tipo_usuario':i.tipo_usuario
             }) 
         #datoscli=list(datos)
@@ -94,48 +94,33 @@ class listarUsuarios(ListView):
         #return render(request, 'index.html',{'datos': datoscli})
     
 
-
-
-
-
-
-
-
 class InsertarUsuario(View):
     @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args: Any, **kwargs):
+    def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
-    
     def post(self, request):
         try:
             datos=json.loads(request.body)
         except(json.JSONDecodeError,UnicodeDecodeError):
             return JsonResponse({"error": "Erra en la decodificacion"})
-        datos=json.loads(request.body)
         codi_usuario = datos.get('codi_usuario')
         nombre_usuario = datos.get('nombre_usuario')
         correo_usuario = datos.get('correo_usuario')
-        pass_usuario = datos.get('pass_usuraio')
-        tipo_usuario = datos.get('tipo_usuraio')
-        print("datos del usuario", request.POST)
+        pass_usuario = datos.get('pass_usuario')
+        tipo_usuario = datos.get('tipo_usuario')
+        print(datos.get('codigo'))
         #cli=Cliente.objects.create(codi_usuario=datos['codi_usuario'],nombre_usuario=datos['nombre_usuario'],correo_usuario=datos['correo_usuario'],pass_usuraio=datos['pass_usuraio'],tipo_usuraio=datos['tipo_usuraio'])
         #cli.save()
         #return JsonResponse({'mensaje': 'datos guardados'})
-        usuario.objects.create(codi_usuario=codi_usuario, nombre_usuario=nombre_usuario, correo_usuario=correo_usuario, pass_usuario=pass_usuario, tipo_usuario=tipo_usuario)
+        usu=usuario.objects.create(codi_usuario=codi_usuario, nombre_usuario=nombre_usuario, correo_usuario=correo_usuario, pass_usuario=pass_usuario, tipo_usuario=tipo_usuario)
+        usu.save()
+        
         return JsonResponse({'mensaje': 'datos guardados'})
         # return render(request,'insertarCli.html',{'mensaje': 'Datos guardados'})
 
 
-
-
-
-
 def formularioInsertar(request):
     return render(request,"insertarUsu.html")    
-
-
-
-
 
 
 class Actualizar(View):

@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
-
     document.getElementById("frmInsertar").addEventListener("submit", function(event){
         event.preventDefault();
-
         var data={
             codi_usuario:document.getElementById("codigo").value,
             nombre_usuario:document.getElementById("nombre").value,
@@ -10,7 +8,11 @@ document.addEventListener("DOMContentLoaded", function(){
             pass_usuario:document.getElementById("password").value,
             tipo_usuario:document.getElementById("tipo").value
         };
-
+        console.log(document.getElementById("codigo").value)
+        console.log(document.getElementById("nombre").value)
+        console.log(document.getElementById("correo").value)
+        console.log(document.getElementById("password").value)
+        console.log(document.getElementById("tipo").value)
         var jsonData=JSON.stringify(data);
         fetch("http://127.0.0.1:8000/insertarUsu/",{
             method:'POST',
@@ -20,16 +22,11 @@ document.addEventListener("DOMContentLoaded", function(){
             }
         })
 
-        .then(response => response.json())
+        .then(res => res.json())
         .then(datos=>{
             console.log(datos)
-            consultarUsu();
-
+            consultar();
         })
-
-
+        .catch(console.error())
     });
-
-
-
 });
